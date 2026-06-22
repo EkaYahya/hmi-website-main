@@ -1,0 +1,5 @@
+[14-Feb-2026 20:25:34 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'id' (T_STRING), expecting ')' in /home/hmiq9437/public_html/lms/index.php on line 153
+[14-Feb-2026 20:25:40 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'id' (T_STRING), expecting ')' in /home/hmiq9437/public_html/lms/index.php on line 153
+[14-Feb-2026 23:21:17 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'file_path' (T_STRING), expecting ')' in /home/hmiq9437/public_html/lms/module.php on line 135
+[14-Feb-2026 23:21:18 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'file_path' (T_STRING), expecting ')' in /home/hmiq9437/public_html/lms/module.php on line 135
+[14-Feb-2026 23:21:20 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'file_path' (T_STRING), expecting ')' in /home/hmiq9437/public_html/lms/module.php on line 135

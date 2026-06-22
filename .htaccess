@@ -1,0 +1,51 @@
+# HMI IT Telkom - Apache URL Rewriting
+# Clean URLs: /profil → /public/profil.php
+
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve assets and uploads directly (before the file/dir check)
+RewriteRule ^assets/ - [L]
+RewriteRule ^uploads/ - [L]
+
+# Let admin and lms PHP files pass through directly
+RewriteRule ^admin/.*\.php$ - [L]
+RewriteRule ^lms/.*\.php$ - [L]
+
+# Security: block direct access to config & includes
+RewriteRule ^config/ - [F,L]
+RewriteRule ^includes/ - [F,L]
+
+# Don't rewrite existing files (but DO rewrite directories like /public/)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# =============================================
+# Clean URL routing (for non-existing paths)
+# =============================================
+
+# Homepage: / → index.php (which includes public/index.php)
+RewriteRule ^$ index.php [L,QSA]
+
+# Public pages with clean URLs
+RewriteRule ^profil/?$ public/profil.php [L,QSA]
+RewriteRule ^sejarah/?$ public/sejarah.php [L,QSA]
+RewriteRule ^berita/?$ public/berita.php [L,QSA]
+RewriteRule ^berita/detail/?$ public/berita_detail.php [L,QSA]
+RewriteRule ^event/?$ public/event.php [L,QSA]
+RewriteRule ^dokumen/?$ public/dokumen.php [L,QSA]
+RewriteRule ^hotline/?$ public/hotline.php [L,QSA]
+RewriteRule ^login/?$ public/login.php [L,QSA]
+RewriteRule ^daftar-kader/?$ public/daftar_kader.php [L,QSA]
+RewriteRule ^gagasan/?$ public/gagasan.php [L,QSA]
+
+# Sitemap
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# Prevent direct access to /public/ directory  
+RewriteRule ^public/?$ index.php [L,R=301]
+RewriteRule ^public/index\.php$ / [L,R=301]
